@@ -7,9 +7,9 @@ var toDoItems = [];
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
 
-var span = querySelector("#createdBy");
+var span = document.querySelector("#createdBy");
 
-span.innerHTML = "Aplicación creada por Franco";
+span.innerHTML = span.innerHTML + " Sebas";
 
 // span.
 
