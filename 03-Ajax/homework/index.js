@@ -21,6 +21,7 @@ const botonBuscador = document.querySelector("#search");
 // const accion = botonVerAmigos.addEventListener("click", functionMostrar);
 
 const fsBuscar = function () {
+	listaUL.innerHTML = "";
 	$.get(`${URL_BASE}/amigos`, (friends) => {
 		friends.forEach((friend) => {
 			let listaLI = document.createElement("li");
@@ -33,7 +34,16 @@ botonVerAmigos.addEventListener("click", fsBuscar);
 
 //**************************************************************************** */
 //?                     BUSCAR AMIGO
+const spanAmigo = document.getElementById("amigo");
+// const input = $("#input").val();
 
-$.get(`${URL_BASE}/amigos`, function (friends) {
-	friends;
-});
+const buscarAmigoPorID = function () {
+	const input = document.getElementById("input").value;
+	$.get(`${URL_BASE}/amigos/${input}`, function (valor) {
+		spanAmigo.innerHTML = valor.name;
+	});
+};
+botonBuscador.addEventListener("click", buscarAmigoPorID);
+
+//**************************************************************************** */
+//?                     DELETE AMIGO
